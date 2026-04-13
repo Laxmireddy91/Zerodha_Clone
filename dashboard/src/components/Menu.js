@@ -35,11 +35,11 @@ const Menu = () => {
 
                 if (!token) {
                     console.log("No token found, redirecting to login");
-                    window.location.href = "http://localhost:3003/signup";
+                    window.location.href = "/signup";
                     return;
                 }
 
-                const res = await fetch("http://localhost:3002/api/profile/me", {
+                const res = await fetch("https://zerodha-backend-ca5i.onrender.com/api/profile/me", {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -77,13 +77,13 @@ const Menu = () => {
     }, [isProfileDropdownOpen]);
 
     const handleLogout = async () => {
-        await fetch("http://localhost:3002/api/auth/logout", {
-            method: "POST",
+await fetch("https://zerodha-backend-ca5i.onrender.com/api/auth/logout", {
+        method: "POST",
             credentials: "include",
         });
 
         localStorage.removeItem("accessToken");
-        window.location.href = "http://localhost:3003/signup";
+        window.location.href = "/signup";
     };
 
     const handleDelete = async () => {
@@ -92,15 +92,15 @@ const Menu = () => {
 
         const token = localStorage.getItem("accessToken");
 
-        await fetch("http://localhost:3002/api/user/delete", {
-            method: "DELETE",
+await fetch("https://zerodha-backend-ca5i.onrender.com/api/user/delete", {
+        method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         });
 
         localStorage.removeItem("accessToken");
-        window.location.href = "http://localhost:3003/signup";
+        window.location.href = "/signup";
     };
 
     const menuClass = "menu";

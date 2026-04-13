@@ -22,8 +22,7 @@ function Signup() {
     setError('');
     setLoading(true);
 
-    const BACKEND = 'http://localhost:3002';
-
+const BACKEND = 'https://zerodha-backend-ca5i.onrender.com';
     const endpoint = mode === 'signup'
   ? `${BACKEND}/api/auth/register`
   : `${BACKEND}/api/auth/login`;
@@ -51,7 +50,7 @@ console.log("Type:", typeof data.accessToken);
 
 if (data.accessToken) {
   localStorage.setItem('accessToken', data.accessToken);
-  window.location.href = `http://localhost:3001?token=${data.accessToken}`;
+  window.location.href = `https://your-dashboard-url.onrender.com?token=${data.accessToken}`;
 }
     } catch (err) {
       setError('Something went wrong. Please try again.');

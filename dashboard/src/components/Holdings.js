@@ -11,7 +11,7 @@ const Holdings = () => {
   const { refreshFlag } = useContext(GeneralContext);
 
   useEffect(() => {
-        axios.get("http://localhost:3002/allHoldings").then((res) => {
+        axios.get("https://zerodha-backend-ca5i.onrender.com/allHoldings").then((res) => {
           console.log(res.data);
           setHoldings(res.data);
         });      

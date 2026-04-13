@@ -18,7 +18,7 @@ const Home = () => {
     const token = localStorage.getItem("accessToken");
 
     if (!token) {
-      window.location.href = "http://localhost:3003/signup";
+      window.location.href = "/signup";
     } else {
       setReady(true);
     }

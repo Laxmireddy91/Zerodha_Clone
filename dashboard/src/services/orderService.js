@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:3002";
-
+const API = "https://zerodha-backend-ca5i.onrender.com";
 export const placeOrder = async ({ name, qty, price, mode }) => {
   try {
     const res = await axios.post(`${API}/newOrder`, {
