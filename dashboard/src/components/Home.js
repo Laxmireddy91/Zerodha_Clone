@@ -4,24 +4,10 @@ import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
-  const [ready, setReady] = useState(false); // ✅ FIX HERE
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const tokenFromUrl = params.get("token");
-
-    if (tokenFromUrl) {
-      localStorage.setItem("accessToken", tokenFromUrl);
-      window.history.replaceState({}, "", window.location.pathname);
-    }
-
-    const token = localStorage.getItem("accessToken");
-
-    if (!token) {
-      window.location.href = "/signup";
-    } else {
-      setReady(true);
-    }
+    setReady(true);
   }, []);
 
   if (!ready) return <div>Loading...</div>;
